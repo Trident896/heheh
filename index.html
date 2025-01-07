@@ -3,199 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Love You, Sindhu</title>
+    <title>Please Forgive Me</title>
     <style>
-        /* Basic Styling */
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-color: #FFE8F2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .container {
             text-align: center;
+            background-color: #ffe4e1;
+            font-family: 'Arial', sans-serif;
+            transition: background-color 0.5s ease;
         }
-
-        .message-box {
-            background-color: #fff;
-            border: 3px solid #ff6f91;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .message-box h1 {
-            font-size: 3em;
+        h1, h2 {
             color: #ff6f91;
+            transition: color 0.5s ease;
         }
-
-        .message-box p {
-            font-size: 1.5em;
-            color: #ff4081;
+        img {
+            width: 300px;
+            height: auto;
         }
-
-        .message-box img {
-            width: 200px;
-            border-radius: 20px;
-        }
-
-        /* Button Styling */
-        .btn {
-            padding: 15px 25px;
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            color: #fff;
             background-color: #ff6f91;
             border: none;
-            color: white;
-            font-size: 1.5em;
+            border-radius: 5px;
             cursor: pointer;
-            border-radius: 10px;
-            margin: 10px;
         }
-
-        .btn:hover {
-            background-color: #ff4081;
+        button:hover {
+            background-color: #ff4b68;
         }
-
-        /* Animated Hearts */
-        .heart-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .heart {
-            width: 50px;
-            height: 50px;
-            background-color: #ff6f91;
-            position: absolute;
-            transform: rotate(-45deg);
-            animation: float 5s ease-in-out infinite;
-            border-radius: 50% 50% 0 0;
-        }
-
-        .heart:before, .heart:after {
-            content: "";
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background-color: #ff6f91;
-            border-radius: 50%;
-        }
-
-        .heart:before {
-            top: -25px;
-            left: 0;
-        }
-
-        .heart:after {
-            left: 25px;
-            top: 0;
-        }
-
-        /* Floating Animation */
-        @keyframes float {
-            0% { transform: translateY(0) rotate(-45deg); }
-            50% { transform: translateY(-50px) rotate(-45deg); }
-            100% { transform: translateY(0) rotate(-45deg); }
-        }
-
-        /* Different Heart Positions */
-        .heart1 {
-            top: 50%;
-            left: 10%;
-            animation-duration: 6s;
-        }
-
-        .heart2 {
-            top: 20%;
-            right: 10%;
-            animation-duration: 8s;
-        }
-
-        .heart3 {
-            top: 30%;
-            left: 40%;
-            animation-duration: 7s;
-        }
-
-        /* Ribbon with Text */
-        .ribbon {
-            width: 300px;
-            height: 50px;
-            background-color: #ff4081;
-            margin: 50px auto 0;
-            position: relative;
-            border-radius: 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .ribbon:before, .ribbon:after {
-            content: "";
-            position: absolute;
-            border-left: 50px solid transparent;
-            border-right: 50px solid transparent;
-            border-bottom: 25px solid #ff4081;
-            top: -25px;
-        }
-
-        .ribbon:after {
-            bottom: -25px;
-            top: auto;
-            border-bottom: none;
-            border-top: 25px solid #ff4081;
-        }
-
-        .ribbon span {
-            font-size: 1.5em;
-            color: white;
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="heart-container">
-        <div class="heart heart1"></div>
-        <div class="heart heart2"></div>
-        <div class="heart heart3"></div>
+
+    <!-- Initial Page -->
+    <div id="forgiveness-page">
+        <h1>Please Forgive Me 😢</h1>
+        <img src="https://i.imgur.com/t5qgO1Y.jpg" alt="Sad Cat">
+        <br>
+        <button onclick="showThankYouPage()">Yes</button>
+        <button onclick="showPleasePage()">No</button>
     </div>
 
-    <div class="container" id="first-page">
-        <div class="message-box">
-            <h1>Please forgive me</h1>
-            <img src="https://preview.redd.it/one-guy-says-hes-photoshopped-so-i-want-to-prove-hes-real-v0-2cw1cqlubcz91.jpg?width=1080&crop=smart&auto=webp&s=7a8dd956922bb70000bc046b6ff1dd94dd9ff1cc">
-            <br>
-            <button class="btn" onclick="showLoveMessage()">Yes</button>
-            <button class="btn" onclick="showPleaseMessage()">No</button>
-        </div>
+    <!-- Thank You Page -->
+    <div id="thankyou-page" class="hidden">
+        <h1>Thank You for Being So Understanding! I Love You! 😊</h1>
+        <img src="https://i.imgur.com/4M7IWwP.jpg" alt="Happy Cat">
     </div>
 
-    <div class="container" id="second-page" style="display: none;">
-        <div class="message-box">
-            <h1>Thank you for being so understanding</h1>
-            <p>I love you!</p>
-            <img src="https://ih1.redbubble.net/image.4992221676.2509/st,small,507x507-pad,600x600,f8f8f8.u3.jpg">
-        </div>
+    <!-- Please Page -->
+    <div id="please-page" class="hidden">
+        <h1>Please 😭</h1>
+        <img src="https://i.imgur.com/OZoxQgu.jpg" alt="Crying Cat">
     </div>
 
     <script>
-        function showLoveMessage() {
-            document.getElementById("first-page").style.display = "none";
-            document.getElementById("second-page").style.display = "block";
+        // Function to show the Thank You page
+        function showThankYouPage() {
+            document.getElementById('forgiveness-page').classList.add('hidden');
+            document.getElementById('thankyou-page').classList.remove('hidden');
+            document.body.style.backgroundColor = '#ffe4b5';
         }
 
-        function showPleaseMessage() {
-            alert("Please 😢");
+        // Function to show the Please page
+        function showPleasePage() {
+            document.getElementById('forgiveness-page').classList.add('hidden');
+            document.getElementById('please-page').classList.remove('hidden');
+            document.body.style.backgroundColor = '#ffd6d9';
         }
     </script>
+
 </body>
 </html>
